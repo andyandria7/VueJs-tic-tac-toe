@@ -2,12 +2,11 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-const isProduction = process.env.NODE_ENV === 'production';
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:isProduction ? '/VueJs-tic-tac-toe/': '/',
+  base: process.env.NODE_ENV === 'production' ? '/VueJs-tic-tac-toe/' : '/',
   plugins: [vue()],
   resolve: {
     alias: {
